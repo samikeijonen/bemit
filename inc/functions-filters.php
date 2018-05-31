@@ -148,3 +148,19 @@ function bemit_nav_menu_submenu_css_class( $classes, $args, $depth ) {
 	return $classes;
 }
 add_filter( 'nav_menu_submenu_css_class', 'bemit_nav_menu_submenu_css_class', 10, 3 );
+
+/**
+ * Remove hentry and add entry at the same time.
+ *
+ * @param string[] $classes An array of post class names.
+ */
+function bemit_entry_classes( $classes ) {
+	// Remove .hentry class.
+	$classes = array_diff( $classes, [ 'hentry' ] );
+
+	// Add .entry class.
+	$classes[] = 'entry';
+
+	return $classes;
+}
+add_filter( 'post_class', 'bemit_entry_classes' );
