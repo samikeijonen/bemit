@@ -16,22 +16,26 @@
  * @param int      $depth   Depth of menu item. Used for padding.
  */
 function bemit_nav_menu_css_class( $classes, $item, $args, $depth ) {
+	// Get theme location, fallback for `default`.
 	$theme_location = $args->theme_location ? $args->theme_location : 'default';
 
+	// Reset all default classes and start adding custom classes to array.
 	$_classes = [ 'menu__item' ];
 
 	// Add theme location class.
 	$_classes[] = 'menu__item--' . $theme_location;
-
-	if ( 0 === $depth ) {
-		$_classes[] = 'is-top-level';
-	}
 
 	// Add a class if the menu item has children.
 	if ( in_array( 'menu-item-has-children', $classes, true ) ) {
 		$_classes[] = 'has-children';
 	}
 
+	// Add `is-top-level` example class using $depth parameter.
+	if ( 0 === $depth ) {
+		$_classes[] = 'is-top-level';
+	}
+
+	// Return custom classes.
 	return $_classes;
 }
 add_filter( 'nav_menu_css_class', 'bemit_nav_menu_css_class', 10, 4 );
