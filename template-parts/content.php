@@ -10,17 +10,17 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
+	<header class="entry__header">
 		<?php
 		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
+			the_title( '<h1 class="entry__title">', '</h1>' );
 		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+			the_title( '<h2 class="entry__title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		endif;
 
 		if ( 'post' === get_post_type() ) :
 			?>
-			<div class="entry-meta">
+			<div class="entry__meta">
 				<?php
 				bemit_posted_on();
 				bemit_posted_by();
@@ -31,7 +31,7 @@
 
 	<?php bemit_post_thumbnail(); ?>
 
-	<div class="entry-content">
+	<div class="entry__content">
 		<?php
 		the_content( sprintf(
 			wp_kses(
@@ -51,9 +51,9 @@
 			'after'  => '</div>',
 		) );
 		?>
-	</div><!-- .entry-content -->
+	</div><!-- .entry__content -->
 
-	<footer class="entry-footer">
+	<footer class="entry__footer">
 		<?php bemit_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+	</footer><!-- .entry__footer -->
 </article><!-- #post-<?php the_ID(); ?> -->
