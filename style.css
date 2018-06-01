@@ -40,7 +40,8 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	--color-black: #000;
 	--color-light: #f6f9fc;
 	--color-base: #a117e6;
-	--color-base-rgb: 37, 22, 199;
+	--color-base-rgb: 161, 23, 230;
+	--color-base-1: #17b9e6;
 	--color-dark: #06031f;
 	--color-grey-60: rgba(0, 0, 0, 0.6);
 	--color-grey-20: rgba(0, 0, 0, 0.2);
@@ -841,7 +842,7 @@ td {
 # Components - specific UI components.
 --------------------------------------------------------------*/
 .site-header {
-	background: linear-gradient(120deg, var(--color-base) 30%, #17b9e6 100%) no-repeat scroll center center/cover;
+	background: linear-gradient(120deg, var(--color-base) 30%, var(--color-base-1) 100%) no-repeat scroll center center/cover;
 	color: var(--color-white);
 	padding: 6rem 1rem;
 }
