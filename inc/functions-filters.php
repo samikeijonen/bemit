@@ -36,7 +36,7 @@ function bemit_nav_menu_link_attributes( $atts, $item, $args, $depth ) {
 		$atts['class'] .= ' is-active';
 	}
 
-	if ( in_array( 'button', $item->classes, true ) ) {
+	if ( in_array( 'button', $item->classes, true ) && 'primary' === $args->theme_location ) {
 		$atts['class'] .= ' menu__anchor--button';
 	}
 
