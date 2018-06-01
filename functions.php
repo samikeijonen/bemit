@@ -110,7 +110,7 @@ function bemit_widgets_init() {
 		'description'   => esc_html__( 'Add widgets here.', 'bemit' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
+		'before_title'  => '<h2 class="widget__title">',
 		'after_title'   => '</h2>',
 	) );
 }
@@ -120,6 +120,23 @@ add_action( 'widgets_init', 'bemit_widgets_init' );
  * Enqueue scripts and styles.
  */
 function bemit_scripts() {
+
+	// Main scripts.
+	wp_enqueue_script(
+		'bemit-app',
+		get_parent_theme_file_uri( 'js/app.js' ),
+		null,
+		'20183105',
+		true
+	);
+
+	// Add SVG icon which we can use via JS.
+	wp_localize_script( 'bemit-app', 'BemitText', array(
+		'icon' => '<svg class="svg svg-arrow-down" xmlns="http://www.w3.org/2000/svg" width="21" height="32" viewBox="0 0 21 32">
+		<path d="M19.196 13.143q0 .232-.179.411l-8.321 8.321q-.179.179-.411.179t-.411-.179l-8.321-8.321q-.179-.179-.179-.411t.179-.411l.893-.893q.179-.179.411-.179t.411.179l7.018 7.018 7.018-7.018q.179-.179.411-.179t.411.179l.893.893q.179.179.179.411z"/>
+	  </svg>',
+	) );
+
 	wp_enqueue_style( 'bemit-style', get_stylesheet_uri() );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -131,19 +148,19 @@ add_action( 'wp_enqueue_scripts', 'bemit_scripts' );
 /**
  * Filters for this theme.
  */
-require get_template_directory() . '/inc/functions-filters.php';
+require get_parent_theme_file_path( '/inc/functions-filters.php' );
 
 /**
  * Custom template tags for this theme.
  */
-require get_template_directory() . '/inc/template-tags.php';
+require get_parent_theme_file_path( '/inc/template-tags.php' );
 
 /**
  * Functions which enhance the theme by hooking into WordPress.
  */
-require get_template_directory() . '/inc/template-functions.php';
+require get_parent_theme_file_path( '/inc/template-functions.php' );
 
 /**
  * Customizer additions.
  */
-require get_template_directory() . '/inc/customizer.php';
+require get_parent_theme_file_path( '/inc/customizer.php' );
