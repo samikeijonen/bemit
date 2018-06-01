@@ -11,7 +11,8 @@ Text Domain: bemit
 Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
 
 This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
+Use it to make something cool, have fun,
+and share what you've learned with others.
 
 Bemit is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
 Underscores is distributed under the terms of the GNU GPL v2 or later.
@@ -70,6 +71,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
+/* stylelint-disable */
 /* normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
@@ -412,14 +414,16 @@ template {
 	display: none;
 }
 
+/* stylelint-enable */
+
 /* Box sizing. */
 html {
 	box-sizing: border-box;
 }
 
 *,
-*::before,
-*::after {
+*:before,
+*:after {
 	box-sizing: inherit;
 }
 
@@ -635,7 +639,7 @@ li > ul,
 li > ol {
 	margin-bottom: 0;
 	margin-left: 1rem;
-	padding-left: 1rem; 
+	padding-left: 1rem;
 }
 
 dt {
@@ -712,7 +716,7 @@ big {
 
 pre {
 	background-color: var(--color-light);
-	font-family: "Courier 10 Pitch", "Courier", monospace;
+	font-family: "Courier 10 Pitch", Courier, monospace;
 	margin: 0 0 2rem;
 	max-width: 100%;
 	overflow: auto;
@@ -723,7 +727,7 @@ code,
 kbd,
 tt,
 var {
-	font-family: "Monaco", "Consolas", "Andale Mono", "DejaVu Sans Mono", monospace;
+	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 }
 
 table {
@@ -1014,21 +1018,21 @@ td {
 	border: 0;
 	clip: rect(1px, 1px, 1px, 1px);
 	-webkit-clip-path: inset(50%);
-			clip-path: inset(50%);
+			clip-path: inset(50%); /* stylelint-disable-line */
 	height: 1px;
 	margin: -1px;
 	overflow: hidden;
 	padding: 0;
 	position: absolute;
 	width: 1px;
-	word-wrap: normal !important;
+	word-wrap: normal !important; /* stylelint-disable-line */
 }
 
 .screen-reader-text:focus {
 	background-color: var(--color-base);
-	clip: auto !important;
+	clip: auto !important; /* stylelint-disable-line */
 	-webkit-clip-path: none;
-			clip-path: none;
+			clip-path: none; /* stylelint-disable-line */
 	color: var(--color-white);
 	display: block;
 	font-size: 0.875rem;
