@@ -60,10 +60,10 @@ function bemit_nav_menu_link_attributes( $atts, $item, $args, $depth ) {
 	// Get theme location, fallback for `default`.
 	$theme_location = $args->theme_location ? $args->theme_location : 'default';
 
-	// Start adding custom classes to.
+	// Start adding custom classes.
 	$atts['class'] = 'menu__anchor menu__anchor--' . $theme_location;
 
-	// Add `menu__anchor--button` when there in `button` class in `<li>` element.
+	// Add `menu__anchor--button` when there is `button` class in `<li>` element.
 	if ( in_array( 'button', $item->classes, true ) && 'primary' === $args->theme_location ) {
 		$atts['class'] .= ' menu__anchor--button';
 	}
