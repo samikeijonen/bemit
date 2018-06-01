@@ -10,7 +10,7 @@
 get_header();
 ?>
 
-	<main class="site-main">
+	<main class="site-main" id="content">
 
 	<?php
 	while ( have_posts() ) :
