@@ -44,7 +44,7 @@
 			<?php endif; ?>
 		</div><!-- .site-header__branding -->
 
-		<nav class="menu menu--primary">
+		<nav class="menu menu--primary" aria-label="<?php echo esc_html__( 'Top', 'bemit' ); ?>">
 			<?php
 			wp_nav_menu( array(
 				'theme_location' => 'primary',
