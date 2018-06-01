@@ -57,22 +57,28 @@ add_filter( 'nav_menu_css_class', 'bemit_nav_menu_css_class', 10, 4 );
  * @return string  $attr
  */
 function bemit_nav_menu_link_attributes( $atts, $item, $args, $depth ) {
+	// Get theme location, fallback for `default`.
 	$theme_location = $args->theme_location ? $args->theme_location : 'default';
 
+	// Start adding custom classes to.
 	$atts['class'] = 'menu__anchor menu__anchor--' . $theme_location;
 
-	if ( in_array( 'current-page-ancestor', $item->classes, true ) || in_array( 'current-menu-ancestor', $item->classes, true ) ) {
-		$atts['class'] .= ' is-ancestor';
-	}
-
-	if ( in_array( 'current-menu-item', $item->classes, true ) ) {
-		$atts['class'] .= ' is-active';
-	}
-
+	// Add `menu__anchor--button` when there in `button` class in `<li>` element.
 	if ( in_array( 'button', $item->classes, true ) && 'primary' === $args->theme_location ) {
 		$atts['class'] .= ' menu__anchor--button';
 	}
 
+	// Add `is-ancestor` class.
+	if ( in_array( 'current-page-ancestor', $item->classes, true ) || in_array( 'current-menu-ancestor', $item->classes, true ) ) {
+		$atts['class'] .= ' is-ancestor';
+	}
+
+	// Add `is-active` class.
+	if ( in_array( 'current-menu-item', $item->classes, true ) ) {
+		$atts['class'] .= ' is-active';
+	}
+
+	// Add `is-top-level` example class using $depth parameter.
 	if ( 0 === $depth ) {
 		$atts['class'] .= ' is-top-level';
 	}
